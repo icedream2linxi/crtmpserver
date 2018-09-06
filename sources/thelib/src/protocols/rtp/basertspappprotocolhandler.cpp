@@ -1679,10 +1679,10 @@ string BaseRTSPAppProtocolHandler::ComputeSDP(RTSPProtocol *pFrom,
 	//3. Prepare the body of the response
 	string result = "";
 	result += "v=0\r\n";
-	result += format("o=- %"PRIu32" 0 IN IP4 %s\r\n", pFrom->GetId(), STR(nearAddress));
+	result += format("o=- %" PRIu32 " 0 IN IP4 %s\r\n", pFrom->GetId(), STR(nearAddress));
 	result += "s=" + targetStreamName + "\r\n";
-	result += "u="BRANDING_WEB"\r\n";
-	result += "e="BRANDING_EMAIL"\r\n";
+	result += "u=" BRANDING_WEB "\r\n";
+	result += "e=" BRANDING_EMAIL "\r\n";
 	result += "c=IN IP4 " + nearAddress + "\r\n";
 	result += "t=0 0\r\n";
 	result += "a=recvonly\r\n";

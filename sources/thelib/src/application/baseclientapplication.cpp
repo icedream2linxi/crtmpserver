@@ -241,7 +241,7 @@ void BaseClientApplication::UnRegisterProtocol(BaseProtocol *pProtocol) {
 }
 
 void BaseClientApplication::SignalStreamRegistered(BaseStream *pStream) {
-	INFO("Stream %s(%"PRIu32") with name `%s` registered to application `%s` from protocol %s(%"PRIu32")",
+	INFO("Stream %s(%" PRIu32 ") with name `%s` registered to application `%s` from protocol %s(%" PRIu32 ")",
 			STR(tagToString(pStream->GetType())),
 			pStream->GetUniqueId(),
 			STR(pStream->GetName()),
@@ -252,7 +252,7 @@ void BaseClientApplication::SignalStreamRegistered(BaseStream *pStream) {
 }
 
 void BaseClientApplication::SignalStreamUnRegistered(BaseStream *pStream) {
-	INFO("Stream %s(%"PRIu32") with name `%s` unregistered from application `%s` from protocol %s(%"PRIu32")",
+	INFO("Stream %s(%" PRIu32 ") with name `%s` unregistered from application `%s` from protocol %s(%" PRIu32 ")",
 			STR(tagToString(pStream->GetType())),
 			pStream->GetUniqueId(),
 			STR(pStream->GetName()),
@@ -488,7 +488,7 @@ string BaseClientApplication::GetStreamNameByAlias(string &streamName, bool remo
 	}
 
 	if (_aliases.size() > 200) {
-		WARN("Auto flush aliases: %"PRIu32, (uint32_t) _aliases.size());
+		WARN("Auto flush aliases: %" PRIu32, (uint32_t) _aliases.size());
 		_aliases.clear();
 	}
 

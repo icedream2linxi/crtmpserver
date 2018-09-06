@@ -308,7 +308,7 @@ bool InboundTSProtocol::ProcessPacket(uint32_t packetHeader,
 		}
 		default:
 		{
-			WARN("PID type not implemented: %d. Pid number: %"PRIu16,
+			WARN("PID type not implemented: %d. Pid number: %" PRIu16,
 					pPIDDescriptor->type, pPIDDescriptor->pid);
 			return false;
 		}
@@ -465,7 +465,7 @@ bool InboundTSProtocol::ProcessPidTypePMT(uint32_t packetHeader,
 		map<uint32_t, BaseOutStream *> subscribedOutStreams =
 				GetApplication()->GetStreamsManager()->GetWaitingSubscribers(
 				streamName, pStream->GetType(), true);
-		//FINEST("subscribedOutStreams count: %"PRIz"u", subscribedOutStreams.size());
+		//FINEST("subscribedOutStreams count: %" PRIz "u", subscribedOutStreams.size());
 
 
 		//8. Bind the waiting subscribers

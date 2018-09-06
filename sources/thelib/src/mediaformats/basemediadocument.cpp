@@ -45,8 +45,8 @@ bool BaseMediaDocument::Process() {
 	_seekGranularity = (uint32_t) _metadata[META_MEDIA_SEEK_SETTINGS][META_MEDIA_GRANULARITY];
 #else
 	_mediaFilePath = (string) _metadata[META_SERVER_FULL_PATH];
-	_metaFilePath = _mediaFilePath + "."MEDIA_TYPE_META;
-	_seekFilePath = _mediaFilePath + "."MEDIA_TYPE_SEEK;
+	_metaFilePath = _mediaFilePath + "." MEDIA_TYPE_META;
+	_seekFilePath = _mediaFilePath + "." MEDIA_TYPE_SEEK;
 	_keyframeSeek = (bool)_metadata[CONF_APPLICATION_KEYFRAMESEEK];
 	_seekGranularity = (uint32_t) _metadata[CONF_APPLICATION_SEEKGRANULARITY];
 #endif /* HAS_VOD_MANAGER */
@@ -90,7 +90,7 @@ bool BaseMediaDocument::Process() {
 
 	GETCLOCKS(endTime);
 
-	INFO("%"PRIz"u frames computed in %.2f seconds at a speed of %.2f FPS",
+	INFO("%" PRIz "u frames computed in %.2f seconds at a speed of %.2f FPS",
 			_frames.size(),
 			(endTime - startTime) / (double) CLOCKS_PER_SECOND,
 			(double) _frames.size() / ((endTime - startTime) / (double) CLOCKS_PER_SECOND));
@@ -99,7 +99,7 @@ bool BaseMediaDocument::Process() {
 		uint32_t hours = totalSeconds / 3600;
 		uint32_t minutes = (totalSeconds - hours * 3600) / 60;
 		uint32_t seconds = (totalSeconds - hours * 3600 - minutes * 60);
-		INFO("File size: %"PRIu64" bytes; Duration: %u:%u:%u (%u sec); Optimal bandwidth: %.2f kb/s",
+		INFO("File size: %" PRIu64 " bytes; Duration: %u:%u:%u (%u sec); Optimal bandwidth: %.2f kb/s",
 				_mediaFile.Size(),
 				hours, minutes, seconds,
 				totalSeconds,
@@ -177,7 +177,7 @@ bool BaseMediaDocument::SaveSeekFile() {
 	FOR_VECTOR(_frames, i) {
 		MediaFrame &frame = _frames[i];
 		if (maxFrameSize < frame.length) {
-			//WARN("maxFrameSize bumped up: %"PRIu64" -> %"PRIu64, maxFrameSize, frame.length);
+			//WARN("maxFrameSize bumped up: %" PRIu64 " -> %" PRIu64, maxFrameSize, frame.length);
 			maxFrameSize = frame.length;
 		}
 		hasVideo |= (frame.type == MEDIAFRAME_TYPE_VIDEO);

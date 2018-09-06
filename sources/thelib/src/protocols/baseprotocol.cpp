@@ -51,7 +51,7 @@ BaseProtocol::BaseProtocol(uint64_t type) {
 
 BaseProtocol::~BaseProtocol() {
 #ifdef LOG_CONSTRUCTOR_DESTRUCTOR
-	FINEST("Protocol with id %"PRIu32"(%p) of type %s going to be deleted; F: %p,N: %p, DF: %"PRIu8", DN: %"PRIu8,
+	FINEST("Protocol with id %" PRIu32 "(%p) of type %s going to be deleted; F: %p,N: %p, DF: %" PRIu8 ", DN: %" PRIu8,
 			_id,
 			this,
 			STR(tagToString(_type)),
@@ -78,7 +78,7 @@ BaseProtocol::~BaseProtocol() {
 		}
 	}
 #ifdef LOG_CONSTRUCTOR_DESTRUCTOR
-	FINEST("Protocol with id %"PRIu32"(%p) of type %s deleted; F: %p,N: %p, DF: %"PRIu8", DN: %"PRIu8,
+	FINEST("Protocol with id %" PRIu32 "(%p) of type %s deleted; F: %p,N: %p, DF: %" PRIu8 ", DN: %" PRIu8,
 			_id,
 			this,
 			STR(tagToString(_type)),

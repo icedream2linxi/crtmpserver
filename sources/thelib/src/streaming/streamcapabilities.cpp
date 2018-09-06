@@ -463,10 +463,10 @@ bool _VIDEO_AVC::Deserialize(IOBuffer &src, _VIDEO_AVC &dest) {
 
 _VIDEO_AVC::operator string() {
 	string result;
-	result += format("_spsLength: %"PRIu16"\n", _spsLength);
-	result += format("_ppsLength: %"PRIu16"\n", _ppsLength);
-	result += format("_rate: %"PRIu32"\n", _rate);
-	result += format("WxH: %"PRIu32"x%"PRIu32, _width, _height);
+	result += format("_spsLength: %" PRIu16 "\n", _spsLength);
+	result += format("_ppsLength: %" PRIu16 "\n", _ppsLength);
+	result += format("_rate: %" PRIu32 "\n", _rate);
+	result += format("WxH: %" PRIu32 "x%" PRIu32, _width, _height);
 	return result;
 }
 
@@ -745,7 +745,7 @@ bool StreamCapabilities::Deserialize(string seekFilePath, StreamCapabilities &ca
 		return false;
 	}
 	if (length > 1024 * 1024) {
-		FATAL("Invalid stream capabilities length in file %s: %"PRIu32, STR(seekFilePath), length);
+		FATAL("Invalid stream capabilities length in file %s: %" PRIu32, STR(seekFilePath), length);
 		return false;
 	}
 
@@ -775,7 +775,7 @@ bool StreamCapabilities::Deserialize(IOBuffer &src, StreamCapabilities &capabili
 	}
 	uint64_t ver = ENTOHLLP(pBuffer);
 	if (ver != __STREAM_CAPABILITIES_VERSION) {
-		FATAL("Invalid stream capabilities version. Wanted: %"PRIu64"; Got: %"PRIu64,
+		FATAL("Invalid stream capabilities version. Wanted: %" PRIu64 "; Got: %" PRIu64,
 				__STREAM_CAPABILITIES_VERSION, ver);
 		return false;
 	}

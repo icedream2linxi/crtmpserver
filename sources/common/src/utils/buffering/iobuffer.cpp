@@ -296,7 +296,7 @@ bool IOBuffer::WriteToTCPFd(int32_t fd, uint32_t size, int32_t &sentAmount) {
 
 	if (sentAmount < 0) {
 		if (err != SOCKERROR_SEND_IN_PROGRESS) {
-			FATAL("Unable to send %"PRIu32" bytes of data data. Size advertised by network layer was %"PRIu32". Permanent error: %d",
+			FATAL("Unable to send %" PRIu32 " bytes of data data. Size advertised by network layer was %" PRIu32 ". Permanent error: %d",
 					_published - _consumed, size, err);
 			result = false;
 		}
@@ -320,7 +320,7 @@ bool IOBuffer::WriteToStdio(int32_t fd, uint32_t size, int32_t &sentAmount) {
 	int err = errno;
 
 	if (sentAmount < 0) {
-		FATAL("Unable to send %"PRIu32" bytes of data data. Size advertised by network layer was %"PRIu32". Permanent error: (%d) %s",
+		FATAL("Unable to send %" PRIu32 " bytes of data data. Size advertised by network layer was %" PRIu32 ". Permanent error: (%d) %s",
 				_published - _consumed, size, err, strerror(err));
 		result = false;
 	} else {

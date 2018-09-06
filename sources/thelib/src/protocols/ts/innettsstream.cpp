@@ -183,7 +183,7 @@ bool InNetTSStream::FeedData(uint8_t *pData, uint32_t length, bool packetStart,
 				value = (value + roll)&0x1ffffffff;
 #endif /* __FORCE_ROLL_OVER_FOR_DEBUG */
 #ifdef __DUMP_TIMESTAMP_INFO_FOR_DEBUG
-				string dbg = format("%c lastRawPts: %09"PRIx64" -> value: %09"PRIx64"; ", isAudio ? 'A' : 'V', lastRawPts, value);
+				string dbg = format("%c lastRawPts: %09" PRIx64 " -> value: %09" PRIx64 "; ", isAudio ? 'A' : 'V', lastRawPts, value);
 #endif /* __DUMP_TIMESTAMP_INFO_FOR_DEBUG */
 				if (((lastRawPts >> 32) == 1)
 						&& ((value >> 32) == 0)) {
@@ -195,7 +195,7 @@ bool InNetTSStream::FeedData(uint8_t *pData, uint32_t length, bool packetStart,
 				lastRawPts = value;
 				value += (rollOverCount * 0x1ffffffffLL);
 #ifdef __DUMP_TIMESTAMP_INFO_FOR_DEBUG
-				dbg += format("final: %09"PRIx64"; ", value);
+				dbg += format("final: %09" PRIx64 "; ", value);
 #endif /* __DUMP_TIMESTAMP_INFO_FOR_DEBUG */
 				double tempPtsTime = (double) value / 90.00;
 				if (ptsTime > tempPtsTime) {
