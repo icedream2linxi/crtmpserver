@@ -385,18 +385,18 @@ bool ClientContext::ConsumeAVBuffer() {
 	double wallClockDelta = time(NULL)*1000.00 - _lastWallClock;
 #endif /* HAS_MS_TIMER */
 
-	if (_firstFeedTime == 0) {
-		_firstFeedTime = pStream->GetFeedTime();
-	}
+	//if (_firstFeedTime == 0) {
+	//	_firstFeedTime = pStream->GetFeedTime();
+	//}
 
-	//6. Feed
-	while ((wallClockDelta + 1000 > (pStream->GetFeedTime() - _firstFeedTime)) &&
-			(GETAVAILABLEBYTESCOUNT(_avData) > 8192)) {
-		if (!pTS->SignalInputData(_avData)) {
-			FATAL("Unable to feed TS protocol");
-			return false;
-		}
-	}
+	////6. Feed
+	//while ((wallClockDelta + 1000 > (pStream->GetFeedTime() - _firstFeedTime)) &&
+	//		(GETAVAILABLEBYTESCOUNT(_avData) > 8192)) {
+	//	if (!pTS->SignalInputData(_avData)) {
+	//		FATAL("Unable to feed TS protocol");
+	//		return false;
+	//	}
+	//}
 
 	//7. Done
 	return true;

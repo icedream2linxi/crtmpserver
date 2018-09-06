@@ -243,7 +243,7 @@ bool InboundConnectivity::Initialize() {
 	map<uint32_t, BaseOutStream *> subscribedOutStreams =
 			pApplication->GetStreamsManager()->GetWaitingSubscribers(
 			_streamName, _pInStream->GetType(), true);
-	//FINEST("subscribedOutStreams count: %"PRIz"u", subscribedOutStreams.size());
+	//FINEST("subscribedOutStreams count: %" PRIz "u", subscribedOutStreams.size());
 
 
 	//8. Bind the waiting subscribers
@@ -272,11 +272,11 @@ string InboundConnectivity::GetTransportHeaderLine(bool isAudio, bool isClient) 
 		InboundRTPProtocol *pRTP = isAudio ? _pRTPAudio : _pRTPVideo;
 		RTCPProtocol *pRTCP = isAudio ? _pRTCPAudio : _pRTCPVideo;
 		if (isClient) {
-			return format("RTP/AVP;unicast;client_port=%"PRIu16"-%"PRIu16,
+			return format("RTP/AVP;unicast;client_port=%" PRIu16 "-%" PRIu16,
 					((UDPCarrier *) pRTP->GetIOHandler())->GetNearEndpointPort(),
 					((UDPCarrier *) pRTCP->GetIOHandler())->GetNearEndpointPort());
 		} else {
-			return format("RTP/AVP;unicast;client_port=%s;server_port=%"PRIu16"-%"PRIu16,
+			return format("RTP/AVP;unicast;client_port=%s;server_port=%" PRIu16 "-%" PRIu16,
 					STR(track["portsOrChannels"]["all"]),
 					((UDPCarrier *) pRTP->GetIOHandler())->GetNearEndpointPort(),
 					((UDPCarrier *) pRTCP->GetIOHandler())->GetNearEndpointPort());

@@ -355,11 +355,11 @@ BaseAtom * MP4Document::ReadAtom(BaseAtom *pParentAtom) {
 
 	if (currentPos + pAtom->GetSize() != _mediaFile.Cursor()) {
 		if (currentPos + pAtom->GetSize() < _mediaFile.Cursor()) {
-			FATAL("atom overflow: atom start: %"PRIu64"; Atom size: %"PRIu64"; currentPos: %"PRIu64,
+			FATAL("atom overflow: atom start: %" PRIu64 "; Atom size: %" PRIu64 "; currentPos: %" PRIu64,
 					currentPos, pAtom->GetSize(), _mediaFile.Cursor());
 			return NULL;
 		} else {
-			WARN("wasted space inside atom! atom start: %"PRIu64"; Atom size: %"PRIu64"; currentPos: %"PRIu64,
+			WARN("wasted space inside atom! atom start: %" PRIu64 "; Atom size: %" PRIu64 "; currentPos: %" PRIu64,
 					currentPos, pAtom->GetSize(), _mediaFile.Cursor());
 			if (!_mediaFile.SeekTo(pAtom->GetStart() + pAtom->GetSize())) {
 				FATAL("Unable to skip atom");
@@ -497,7 +497,7 @@ bool MP4Document::BuildFrames() {
 			FATAL("Unable to initialize AAC codec");
 			return false;
 		}
-		//		FINEST("Start: %"PRIu64" (%"PRIx64"); Length: %"PRIu64" (%"PRIx64");",
+		//		FINEST("Start: %" PRIu64 " (%" PRIx64 "); Length: %" PRIu64 " (%" PRIx64 ");",
 		//				audioHeader.start, audioHeader.start, audioHeader.length,
 		//				audioHeader.length);
 	} else {
@@ -650,16 +650,16 @@ bool MP4Document::BuildMOOVFrames(bool audio) {
 	if (pCTSS != NULL) {
 		compositionOffsets = pCTSS->GetEntries();
 		if (sampleSize.size() != compositionOffsets.size()) {
-			WARN("composition offsets count != samples count; compositionOffsets: %"PRIz"u; sampleSize.size: %"PRIz"u",
+			WARN("composition offsets count != samples count; compositionOffsets: %" PRIz "u; sampleSize.size: %" PRIz "u",
 					compositionOffsets.size(),
 					sampleSize.size());
 			for (uint32_t i = (uint32_t) compositionOffsets.size(); i < (uint32_t) sampleSize.size(); i++)
 				ADD_VECTOR_END(compositionOffsets, 0);
-			WARN("composition offsets padded with 0. Now size is %"PRIz"u",
+			WARN("composition offsets padded with 0. Now size is %" PRIz "u",
 					compositionOffsets.size());
 		}
 	}
-	INFO("audio: %d; keyFrames: %"PRIz"u; frames: %"PRIz"u; compositionOffsets: %"PRIz"u",
+	INFO("audio: %d; keyFrames: %" PRIz "u; frames: %" PRIz "u; compositionOffsets: %" PRIz "u",
 			audio, keyFrames.size(), sampleSize.size(), compositionOffsets.size());
 
 	uint32_t timeScale = pMDHD->GetTimeScale();

@@ -257,7 +257,7 @@ DLLEXP time_t timegm(struct tm *tm);
 DLLEXP char *strptime(const char *buf, const char *fmt, struct tm *timeptr);
 DLLEXP int strcasecmp(const char *s1, const char *s2);
 DLLEXP int strncasecmp(const char *s1, const char *s2, size_t n);
-DLLEXP int vasprintf(char **strp, const char *fmt, va_list ap, int size = 256);
+DLLEXP int vasprintf(char **strp, const char *fmt, va_list ap, int size = 1024);
 DLLEXP int gettimeofday(struct timeval *tv, void* tz);
 DLLEXP void InitNetworking();
 DLLEXP HMODULE UnicodeLoadLibrary(string fileName);

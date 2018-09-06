@@ -21,6 +21,10 @@
 #ifdef HAS_LUA
 
 #include "vmlua/basevmlua.h"
+extern "C" {
+#include "lua.h"
+#include "lauxlib.h"
+}
 
 BaseVMLua::BaseVMLua()
 : BaseVM() {

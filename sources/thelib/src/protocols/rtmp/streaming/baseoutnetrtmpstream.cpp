@@ -64,7 +64,7 @@ BaseOutNetRTMPStream::BaseOutNetRTMPStream(BaseRTMPProtocol *pProtocol,
 	_videoCurrentFrameDropped = false;
 	_maxBufferSize = 65536 * 2;
 	_attachedStreamType = 0;
-	_clientId = format("%d_%d_%"PRIz"u", _pProtocol->GetId(), _rtmpStreamId, (size_t)this);
+	_clientId = format("%d_%d_%" PRIz "u", _pProtocol->GetId(), _rtmpStreamId, (size_t)this);
 
 	_paused = false;
 

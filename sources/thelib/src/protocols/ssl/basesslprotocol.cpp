@@ -223,8 +223,8 @@ string BaseSSLProtocol::DumpBIO(BIO *pBIO) {
 	formatString += "next_bio: %p\n";
 	formatString += "prev_bio: %p\n";
 	formatString += "references: %d\n";
-	formatString += "num_read: %"PRId64"\n";
-	formatString += "num_write: %"PRId64;
+	formatString += "num_read: %" PRId64 "\n";
+	formatString += "num_write: %" PRId64;
 	return format(formatString,
 			pBIO->method,
 			pBIO->callback,

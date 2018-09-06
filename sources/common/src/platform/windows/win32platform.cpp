@@ -271,7 +271,7 @@ bool setFdKeepAlive(SOCKET fd, bool isUdp) {
 	int value = 1;
 	if (setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, (char *) &value, sizeof (int)) != 0) {
 		DWORD err = WSAGetLastError();
-		FATAL("setsockopt failed with error %"PRIu32, err);
+		FATAL("setsockopt failed with error %" PRIu32, err);
 		return false;
 	}
 	return true;
@@ -283,7 +283,7 @@ bool setFdNoNagle(SOCKET fd, bool isUdp) {
 	BOOL value = TRUE;
 	if (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (char *) &value, sizeof (BOOL)) == SOCKET_ERROR) {
 		DWORD err = WSAGetLastError();
-		FATAL("Unable to disable Nagle algorithm. Error was: %"PRIu32, err);
+		FATAL("Unable to disable Nagle algorithm. Error was: %" PRIu32, err);
 		return false;
 	}
 

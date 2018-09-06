@@ -86,16 +86,16 @@ configuration=
 					port=1935,
 					protocol="inboundRtmp"
 				},
+				-- {
+				-- 	ip="0.0.0.0",
+				-- 	port=8087,
+				-- 	protocol="inboundRtmps",
+				-- 	sslKey="./ssl/server.key",
+				-- 	sslCert="./ssl/server.crt"
+				-- },
 				{
 					ip="0.0.0.0",
-					port=8081,
-					protocol="inboundRtmps",
-					sslKey="./ssl/server.key",
-					sslCert="./ssl/server.crt"
-				},
-				{
-					ip="0.0.0.0",
-					port=8080,
+					port=8088,
 					protocol="inboundRtmpt"
 				},
 			}

@@ -94,7 +94,7 @@ bool parseURI(string stringUri, URI &uri) {
 	//		FATAL("Scheme `%s` not supported", STR(scheme));
 	//		return false;
 	//	}
-	LOG_URI("scheme: %s; default port: %"PRIu16, STR(scheme), port);
+	LOG_URI("scheme: %s; default port: %" PRIu16, STR(scheme), port);
 
 	//3. get the authentication portion. the search starts from
 	//where the scheme detection left and up to the first / character
@@ -155,12 +155,12 @@ bool parseURI(string stringUri, URI &uri) {
 		portString = hostPort.substr(pos + 1);
 		portSpecified = true;
 		port = (uint16_t) atoi(STR(portString));
-		if (format("%"PRIu16, port) != portString) {
+		if (format("%" PRIu16, port) != portString) {
 			FATAL("Invalid port number specified: `%s`", STR(portString));
 			return false;
 		}
 	}
-	LOG_URI("host: %s; port: %"PRIu16"; portSpecified: %d", STR(host), port, portSpecified);
+	LOG_URI("host: %s; port: %" PRIu16 "; portSpecified: %d", STR(host), port, portSpecified);
 
 	//5. fullDocumentPathWithParameters
 	fullDocumentPath = "/";

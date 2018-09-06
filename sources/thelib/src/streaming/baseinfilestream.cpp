@@ -113,17 +113,17 @@ BaseInFileStream::~BaseInFileStream() {
 
 void BaseInFileStream::SetClientSideBuffer(uint32_t value) {
 	if (value == 0) {
-		//WARN("Invalid client side buffer value: %"PRIu32, value);
+		//WARN("Invalid client side buffer value: %" PRIu32, value);
 		return;
 	}
 	if (value > 120) {
 		value = 120;
 	}
 	if (_clientSideBufferLength > value) {
-		//WARN("Client side buffer must be bigger than %"PRIu32, _clientSideBufferLength);
+		//WARN("Client side buffer must be bigger than %" PRIu32, _clientSideBufferLength);
 		return;
 	}
-	//	FINEST("Client side buffer modified: %"PRIu32" -> %"PRIu32,
+	//	FINEST("Client side buffer modified: %" PRIu32 " -> %" PRIu32,
 	//			_clientSideBufferLength, value);
 	_clientSideBufferLength = value;
 }
@@ -276,7 +276,7 @@ bool BaseInFileStream::Initialize(Variant &medatada, int32_t clientSideBufferLen
 	//5. Compute the optimal window size by reading the biggest frame size
 	//from the seek file.
 	if (!_pSeekFile->SeekTo(_pSeekFile->Size() - 8)) {
-		FATAL("Unable to seek to %"PRIu64" position", _pSeekFile->Cursor() - 8);
+		FATAL("Unable to seek to %" PRIu64 " position", _pSeekFile->Cursor() - 8);
 		return false;
 	}
 	uint64_t maxFrameSize = 0;
@@ -302,7 +302,7 @@ bool BaseInFileStream::Initialize(Variant &medatada, int32_t clientSideBufferLen
 
 	//4. Read the frames count from the file
 	if (!_pSeekFile->SeekTo(_seekBaseOffset)) {
-		FATAL("Unable to seek to _seekBaseOffset: %"PRIu64, _seekBaseOffset);
+		FATAL("Unable to seek to _seekBaseOffset: %" PRIu64, _seekBaseOffset);
 		return false;
 	}
 	if (!_pSeekFile->ReadUI32(&_totalFrames, false)) {
@@ -327,7 +327,7 @@ bool BaseInFileStream::Initialize(Variant &medatada, int32_t clientSideBufferLen
 			val = 1;
 		if (val > (_clientSideBufferLength - 1))
 			val = _clientSideBufferLength - 1;
-		FINEST("_clientSideBufferLength: %"PRIu32"; timer: %"PRIu32, _clientSideBufferLength, (uint32_t) val);
+		FINEST("_clientSideBufferLength: %" PRIu32 "; timer: %" PRIu32, _clientSideBufferLength, (uint32_t) val);
 		_pTimer->EnqueueForTimeEvent((uint32_t) val);
 	}
 
@@ -340,7 +340,7 @@ bool BaseInFileStream::Initialize(Variant &medatada, int32_t clientSideBufferLen
 
 bool BaseInFileStream::Initialize(int32_t clientSideBufferLength, bool hasTimer) {
 	//1. Check to see if we have an universal seeking file
-	string seekFilePath = GetName() + "."MEDIA_TYPE_SEEK;
+	string seekFilePath = GetName() + "." MEDIA_TYPE_SEEK;
 	if (!fileExists(seekFilePath)) {
 		Variant temp;
 		temp[META_SERVER_FULL_PATH] = GetName();
@@ -375,8 +375,8 @@ bool BaseInFileStream::Initialize(int32_t clientSideBufferLength, bool hasTimer)
 	}
 	if (!StreamCapabilities::Deserialize(raw, _streamCapabilities)) {
 		FATAL("Unable to deserialize stream Capabilities. Please delete %s and %s files so they can be regenerated",
-				STR(GetName() + "."MEDIA_TYPE_SEEK),
-				STR(GetName() + "."MEDIA_TYPE_META));
+				STR(GetName() + "." MEDIA_TYPE_SEEK),
+				STR(GetName() + "." MEDIA_TYPE_META));
 		return false;
 	}
 
@@ -388,7 +388,7 @@ bool BaseInFileStream::Initialize(int32_t clientSideBufferLength, bool hasTimer)
 	//5. Compute the optimal window size by reading the biggest frame size
 	//from the seek file.
 	if (!_pSeekFile->SeekTo(_pSeekFile->Size() - 8)) {
-		FATAL("Unable to seek to %"PRIu64" position", _pSeekFile->Cursor() - 8);
+		FATAL("Unable to seek to %" PRIu64 " position", _pSeekFile->Cursor() - 8);
 		return false;
 	}
 	uint64_t maxFrameSize = 0;
@@ -413,7 +413,7 @@ bool BaseInFileStream::Initialize(int32_t clientSideBufferLength, bool hasTimer)
 
 	//4. Read the frames count from the file
 	if (!_pSeekFile->SeekTo(_seekBaseOffset)) {
-		FATAL("Unable to seek to _seekBaseOffset: %"PRIu64, _seekBaseOffset);
+		FATAL("Unable to seek to _seekBaseOffset: %" PRIu64, _seekBaseOffset);
 		return false;
 	}
 	if (!_pSeekFile->ReadUI32(&_totalFrames, false)) {
