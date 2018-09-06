@@ -100,8 +100,8 @@
       <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
@@ -123,8 +123,8 @@ mkdir "$(OutDir)\mediaFolder"
       <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
@@ -150,8 +150,8 @@ mkdir "$(OutDir)\mediaFolder"
       <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
@@ -177,8 +177,8 @@ mkdir "$(OutDir)\mediaFolder"
       <OutputFile>$(OutDir)\$(ProjectName).dll</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>

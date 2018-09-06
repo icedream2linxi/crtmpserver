@@ -101,8 +101,8 @@
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
@@ -125,8 +125,8 @@ mkdir "$(OutDir)\mediaFolder"
       <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
@@ -153,8 +153,8 @@ mkdir "$(OutDir)\mediaFolder"
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
@@ -181,8 +181,8 @@ mkdir "$(OutDir)\mediaFolder"
       <AdditionalDependencies>ws2_32.lib;libeay32.lib;ssleay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>rd /Q /S "$(OutDir)\mediaFolder"
-mkdir "$(OutDir)\mediaFolder"
+      <Command>rd /Q /S "$(OutDir)\media"
+mkdir "$(OutDir)\media"
 </Command>
       <Message>Create the media folder</Message>
     </PostBuildEvent>
